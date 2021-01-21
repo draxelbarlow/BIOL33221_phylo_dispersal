@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phylogenetics of dispersal</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Phylogenetics of dispersal">
+  <meta name="author" content="Dr Axel Barlow">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/custom.css"></link>
+<link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    
+  <slide class="nobackground">
+    <article class="flexbox vcenter">
+      <span>
+        <img width='300px' src="assets/img/NTU_open-graph.png">
+      </span>
+    </article>
+  </slide>
+    <slide class="title-slide segue nobackground">
+  
+  <aside class="gdbar">
+    <img src="assets/img/ntu-shield.png">
+  </aside>
+  
+  <hgroup class="auto-fadein">
+    <h1>Phylogenetics of dispersal</h1>
+    <h2>BIOL33221: Bioinformatics</h2>
+    <p>Dr Axel Barlow<br/>email: axel.barlow@ntu.ac.uk, office: IBRC115</p>
+  </hgroup>
+  
+    <a href="https://github.com/draxelbarlow/BIOL33221_phylo_dispersal/zipball/gh-pages" class="example">
+     Download
+    </a>
+  
+  <article></article>  
+      
+  <footer class = 'license'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+    </a>
+  </footer>
+  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  
+  <article data-timings="">
+    <!-- adding bold and italic options -->
+
+<style>
+em {
+  font-style: italic
+}
+strong {
+  font-weight: bold;
+}
+</style>
+
+<h2>Phylogenetics of dispersal</h2>
+
+<ul>
+<li>Population trees</li>
+<li>The process of dispersal</li>
+<li>Examples</li>
+<li>Viral pandemics</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  
+  <hgroup>
+    <h2>Essential reading</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><embed src="./assets/img/Baldauf - 2003 - Phylogeny for the faint of heart A tutorial.pdf" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="100%" style="display: block; margin: auto;" type="application/pdf" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-3" style="background:;">
+  
+  <hgroup>
+    <h2>We can calculate phylogenies of different things...</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-4" style="background:white;">
+  
+  <hgroup>
+    <h2>Species trees</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>These are phylogenies of species</li>
+<li>Each tip is a different, reproductively isolated species</li>
+<li>Can be inferred from a variety of data types</li>
+</ul>
+
+<p><img src="assets/fig/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="40%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-5" style="background:white;">
+  
+  <hgroup>
+    <h2>Gene trees</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>These are phylogenies of individual loci (e.g. a gene)</li>
+<li>Or related sets of loci (e.g. multigene families)</li>
+<li>Each tip is a different allele (i.e. a gene variant)</li>
+</ul>
+
+<p><img src="assets/fig/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="60%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-6" style="background:white;">
+  
+  <hgroup>
+    <h2>Population-level trees</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>Each tip is an individual</li>
+<li>Each node is their most recent ancestor (coalescence event)</li>
+<li>Shows the relationships of individuals and populations</li>
+</ul>
+
+<p><img src="assets/fig/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="60%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-7" style="background:;">
+  
+  <hgroup>
+    <h2>How does that work?</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-8" style="background:white;">
+  
+  <article data-timings="">
+    <p><img src="./assets/img/mtDNA_tree.svg" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="95%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-9" style="background:white;">
+  
+  <hgroup>
+    <h2>Calculating population-level trees</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <h3>We&#39;ll think about mitochondrial haplotypes (diploid loci 2x more complex)</h3>
+
+<ul>
+<li>Sequence variation provides phylogenetic information</li>
+<li>Similar sequences are more closely related</li>
+<li>Branch lengths are (loosely) proportional to sequence divergence</li>
+<li>Coalescence times also depend on population size</li>
+<li>Described by <strong>coalescent theory</strong></li>
+</ul>
+
+<p><img src="assets/fig/unnamed-chunk-6-1.png" title="plot of chunk unnamed-chunk-6" alt="plot of chunk unnamed-chunk-6" width="50%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-10" style="background:white;">
+  
+  <hgroup>
+    <h2>Human mitochondrial phylogeny</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><em>Rishishwar L, Jordan IK. BMC Genomics. 2017;18:140. CC BY 4.0</em></p>
+
+<p><img src="./assets/img/Dendrogram_showing_relationships_among_mtDNA_haplotypes_and_the_major_mtDNA_haplogroups.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="65%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  
+  <hgroup>
+    <h2>PhyloTree.org visualisation</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <iframe src = 'https://www.phylotree.org/tree/index.htm' height='600px'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-12" style="background:white;">
+  
+  <hgroup>
+    <h2>Geographic occurrence</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><img src="./assets/img/haplo_map.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="95%" style="display: block; margin: auto;" /></p>
+
+<p><em>Rishishwar L, Jordan IK. BMC Genomics. 2017;18:140. CC BY 4.0</em></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-13" style="background:white;">
+  
+  <article data-timings="">
+    <p><img src="./assets/img/WorldMigrations2012.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="95%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  
+  <hgroup>
+    <h2>PIECE TO CAMERA</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-15" style="background:white;">
+  
+  <hgroup>
+    <h2>The dispersal process</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>Imagine 2 Islands: A and B</li>
+<li>B is colonised from A by a single individual</li>
+<li>This transports one lineage from A to the new island B</li>
+<li>Individuals from B are nested within the A clade</li>
+</ul>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="assets/fig/unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="90%" style="display: block; margin: auto;" /></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/island_dispersal.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" width="40%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-16" style="background:white;">
+  
+  <hgroup>
+    <h2>Subsequent expansion</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>The newly introduced B population expands</li>
+<li>All individuals are descendants of the founding lineage</li>
+<li>The B clade is nested within A</li>
+<li>A individuals are <strong>paraphyletic</strong> with respect to B</li>
+</ul>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="assets/fig/unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="90%" style="display: block; margin: auto;" /></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/island_dispersal2.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="40%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-17" style="background:;">
+  
+  <hgroup>
+    <h2>Examples: Golden Lancehead</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="./assets/img/Ilha_da_Queimada_Grande_-_Itanhaém3.jpg" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="70%" style="display: block; margin: auto 0 auto auto;" />
+<em>Queimada Grande, Prefeitura Municipal de ItanhaÃ©m, CC BY 2.5</em></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/Bothrops_insularis.jpg" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="70%" style="display: block; margin: auto auto auto 0;" />
+<em>Bothrops insularis, Nayeryouakim, CC BY 4.0</em></p>
+
+<p><img src="./assets/img/Jararaca.jpg" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="70%" style="display: block; margin: auto auto auto 0;" />
+<em>Bothrops jararaca, Fernando Tatagiba, CC BY 3.0</em></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-18" style="background:white;">
+  
+  <hgroup>
+    <h2>Examples: Golden Lancehead</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="assets/fig/unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="90%" style="display: block; margin: auto;" /></p>
+
+<p><em>Wüster et al. Journal of Zoology 266.1 (2005): 1-10</em></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/Bothrops_insularis.jpg" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="70%" style="display: block; margin: auto auto auto 0;" />
+<em>Bothrops insularis, Nayeryouakim, CC BY 4.0</em></p>
+
+<p><img src="./assets/img/Jararaca.jpg" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="70%" style="display: block; margin: auto auto auto 0;" />
+<em>Bothrops jararaca, Fernando Tatagiba, CC BY 3.0</em></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-19" style="background:;">
+  
+  <hgroup>
+    <h2>Examples: Barbados anoles</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="./assets/img/Martinique's_anole.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" width="75%" style="display: block; margin: auto;" />
+<em>Anolis roquet, Adamhesim, CC BY 4.0</em></p>
+
+<p><img src="./assets/img/Anolis_extremus-m04.jpg" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="40%" style="display: block; margin: auto;" />
+<em>Anolis extremus, Postdlf, CC BY SA-3.0</em></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/LA_map.png" title="plot of chunk unnamed-chunk-20" alt="plot of chunk unnamed-chunk-20" width="70%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-20" style="background:white;">
+  
+  <hgroup>
+    <h2>Examples: Barbados anoles</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="./assets/img/roq_ext_MCC.tre.svg" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="45%" style="display: block; margin: auto;" /></p>
+
+<p><em>Thorpe et al. Mol phylogenet evol 127 (2018): 682-695.</em></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/LA_map.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="70%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-21" style="background:white;">
+  
+  <hgroup>
+    <h2>Complicating factors</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>So far we have considered a <strong>small</strong> and <strong>genetically similar</strong> founding population</li>
+<li>What happens if the founding population is large and genetically diverse?</li>
+</ul>
+
+<ul class = "build incremental">
+<li>This can &quot;look&quot; like multiple colonisation events</li>
+<li>And even make the direction of colonisation uncertain</li>
+</ul>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="assets/fig/unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="90%" style="display: block; margin: auto;" /></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/island_dispersal3.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="40%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="segue dark" id="slide-22" style="background:;">
+  
+  <hgroup>
+    <h2>So what about viruses?</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="" id="slide-23" style="background:white;">
+  
+  <hgroup>
+    <h2>Racoon rabies in Ontario</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><em>Nadin-Davis et al. Virus Research 232 (2017): 123-133. CC BY 4.0</em></p>
+
+<div style='float:left;width:48%;' class='centered'>
+  <p><img src="./assets/img/racoon_rabies_tree.jpg" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><img src="./assets/img/racoon_rabies_map.jpg" title="plot of chunk unnamed-chunk-28" alt="plot of chunk unnamed-chunk-28" width="100%" style="display: block; margin: auto;" /></p>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-24" style="background:white;">
+  
+  <hgroup>
+    <h2>Avian influenza H5N1 in Asia</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><em>Tian et al. Proceedings of the National Academy of Sciences 112.1 (2015): 172-177.</em></p>
+
+<p><img src="./assets/img/avian_influenza.jpg" title="plot of chunk unnamed-chunk-29" alt="plot of chunk unnamed-chunk-29" width="65%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="slide-25" style="background:white;">
+  
+  <hgroup>
+    <h2>Ebola virus in West Africa</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <p><em>Suchard, et al. Virus evolution 4.1 (2018): vey016.</em></p>
+
+<p><img src="./assets/img/ebola.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" width="85%" style="display: block; margin: auto;" /></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  
+  <hgroup>
+    <h2>Phylogenetics of dispersal</h2>
+  </hgroup>
+  
+  <article data-timings="">
+    <ul>
+<li>Population trees</li>
+<li>The process of dispersal</li>
+<li>Examples</li>
+<li>Viral pandemics</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+  
+</slide>
+
+<slide class="thank-you-slide segue nobackground" id="slide-27">
+  <aside class="gdbar right"><img src="assets/img/ntu-shield.png"></aside>
+  <article class="flexbox vleft auto-fadein">
+    <h2>Next time</h2>
+    <p><strong>Bayesian phylogenetics</strong></p>
+
+  </article>
+
+  <p class="auto-fadein" data-config-contact="">
+    
+  </p>
+</slide>
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='NA'>
+         1
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Essential reading'>
+         2
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='We can calculate phylogenies of different things...'>
+         3
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Species trees'>
+         4
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='Gene trees'>
+         5
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=6 title='Population-level trees'>
+         6
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=7 title='How does that work?'>
+         7
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=8 title='NA'>
+         8
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=9 title='Calculating population-level trees'>
+         9
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=10 title='Human mitochondrial phylogeny'>
+         10
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=11 title='PhyloTree.org visualisation'>
+         11
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=12 title='Geographic occurrence'>
+         12
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=13 title='NA'>
+         13
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=14 title='PIECE TO CAMERA'>
+         14
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=15 title='The dispersal process'>
+         15
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=16 title='Subsequent expansion'>
+         16
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=17 title='Examples: Golden Lancehead'>
+         17
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=18 title='Examples: Golden Lancehead'>
+         18
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=19 title='Examples: Barbados anoles'>
+         19
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=20 title='Examples: Barbados anoles'>
+         20
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=21 title='Complicating factors'>
+         21
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=22 title='So what about viruses?'>
+         22
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=23 title='Racoon rabies in Ontario'>
+         23
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=24 title='Avian influenza H5N1 in Asia'>
+         24
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=25 title='Ebola virus in West Africa'>
+         25
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=26 title='Phylogenetics of dispersal'>
+         26
+      </a>
+    </li>
+    
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=27 title='Next time'>
+         27
+      </a>
+    </li>
+    
+    </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
